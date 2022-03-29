@@ -1,0 +1,92 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int p[5] = { 0,0,0,0,0 };//记票器
+class xuanju
+{
+    
+public:
+    xuanju()//构造函数
+    {
+        
+            this->a[0] = "aaa";
+        this->a[1] = "bbb";
+        this->a[2] = "ccc";
+        this->a[3] = "ddd";
+        this->a[4] = "eee";
+        for (int i = 0; i < 5; i++)
+        {
+            
+                cout << "The candidates are:" << a[i] << endl;
+        }
+        getname();
+    }
+    void getname()//获得选举人名
+    {
+        
+            string b;
+        do
+        {
+            
+                cout << "Please enter the name of the election (enter 000 to complete the election)：";
+            cin >> b;
+            toupiao(b);//进入投票计数器函数
+        } while (b != "000");
+        cout << "Election completed!" << endl;
+        bijiao(p);//进入比较票数函数
+    }
+
+    void toupiao(string b)//投票计数器函数
+    {
+        
+            for (int i = 0; i < 5; i++)  
+            {
+                
+                    if (b == a[i])
+                    {
+                        
+                            switch (i)
+                            {
+                                
+                            case 0:
+                                p[i]++;
+                                break;
+                            case 1:
+                                p[i]++;
+                                break;
+                            case 2:
+                                p[i]++;
+                                break;
+                            case 3:
+                                p[i]++;
+                                break;
+                            case 4:
+                                p[i]++;
+                                break;
+                            }
+                    }
+            }
+    }
+    void bijiao(int* p)//比较票数函数
+    {
+       
+            int max = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            
+                if (p[max] < p[i])
+                {
+                    
+                        max = i;
+                }
+        }
+        cout << "election results ：" << a[max] << " acquisition " << p[max] << " Ticket! Winning the championship" << endl;
+    }
+private:
+    string a[5];//参选者
+};
+int main(int argc, char** argv)
+{
+    
+        xuanju A;
+}
